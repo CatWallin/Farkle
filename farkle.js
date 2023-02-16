@@ -1,4 +1,5 @@
 var diceArr = [];
+var score = 0;
 
 function initializeDice(){
 	for(i = 0; i < 6; i++){
@@ -18,6 +19,7 @@ function rollDice(){
 	}
 	updateDiceImg();
 	checkForFarkle();
+	getScore();
 }
 
 /*Updating images of dice given values of rollDice*/
@@ -69,8 +71,8 @@ function checkForFarkle(){
 
 }
 
-/*calculate score and add to player bank*/
-function bankScore(){
+/*calculate score*/
+function getScore(){
 
 	var valueArr = getDiceAmounts();
 	var score = 0;
@@ -112,6 +114,16 @@ function bankScore(){
 			score += 600; 
 		}
 	}
+
+	document.getElementById("row-score").innerHTML = score;
+
+
+}
+
+/*add score to player bank*/
+function bankScore(){
+
+	
 
 	console.log("YOU EARNED", score, "POINTS");
 
