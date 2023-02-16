@@ -18,9 +18,9 @@ function rollDice(){
 		}
 	}
 	updateDiceImg();
-	checkForFarkle();
 	getScore();
 }
+
 
 /*Updating images of dice given values of rollDice*/
 function updateDiceImg(){
@@ -67,7 +67,7 @@ function checkForFarkle(){
 		}
 	}
 	
-	console.log("UH OH, we have a FARKLE! Your turn is over!");
+	alert("UH OH, we have a FARKLE! Your turn is over!");
 
 }
 
@@ -77,7 +77,7 @@ function getScore(){
 	var valueArr = getDiceAmounts();
 	var score = 0;
 	for(var i = 0; i < 6; i++){
-		if(i == 0 && valueArr[i] >= 3){
+		if(i == 0 && valueArr[i] >= 3 && valueArr[i] < 6){
 			score += 1000;
 			if (valueArr[i] - 3 == 1){
 				score += 100;
@@ -86,10 +86,13 @@ function getScore(){
 				score += 200;
 			}
 		}
+		else if(i == 0 && valueArr[i] >= 6){
+			score += 2000;
+		}
 		else if(i == 0){
 			score += valueArr[i] * 100; 
 		} 
-		else if(i == 4 && valueArr[i] >= 3){
+		else if(i == 4 && valueArr[i] >= 3 && valueArr[i] < 6){
 			score += 500;
 			if (valueArr[i] - 3 == 1){
 				score += 50;
@@ -98,33 +101,51 @@ function getScore(){
 				score += 100;
 			}
 		} 
+		else if(i == 4 && valueArr[i] >= 6){
+			score += 1000;
+		}
 		else if(i == 4){
 			score += valueArr[i] * 50; 
 		} 
-		else if(i == 1 && valueArr[i] >= 3){
+		else if(i == 1 && valueArr[i] == 3){
 			score += 200; 
 		}
-		else if(i == 2 && valueArr[i] >= 3){
+		else if(i == 2 && valueArr[i] == 3){
 			score += 300; 
 		}
-		else if(i == 3 && valueArr[i] >= 3){
+		else if(i == 3 && valueArr[i] == 3){
 			score += 400; 
 		}
-		else if(i == 5 && valueArr[i] >= 3){
+		else if(i == 5 && valueArr[i] == 3){
 			score += 600; 
+		}
+		else if(i == 1 && valueArr[i] == 6){
+			score += 400; 
+		}
+		else if(i == 2 && valueArr[i] == 6){
+			score += 600; 
+		}
+		else if(i == 3 && valueArr[i] == 6){
+			score += 800; 
+		}
+		else if(i == 5 && valueArr[i] == 6){
+			score += 1200; 
 		}
 	}
 
 	document.getElementById("row-score").innerHTML = score;
 
+	if(score == 0){
+		alert("UH OH, we have a FARKLE! Your turn is over!");
+	}
 
+	return score;
 }
 
 /*add score to player bank*/
 function bankScore(){
 
-	
-
+	score = getScore()
 	console.log("YOU EARNED", score, "POINTS");
 
 }

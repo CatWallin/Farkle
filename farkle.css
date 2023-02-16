@@ -3,7 +3,7 @@ img{
 }
 body{
 	background-color: #fff;
-	background-image: linear-gradient(-90deg, #667be6, #754da3);
+	background-image: linear-gradient(-90deg, #a580cf, #e2a9f3);
 	font-family: arial;
 }
 .row{
@@ -18,15 +18,15 @@ body{
 	text-align: center;
 	line-height: 100px;
 	font-family: arial;
-	color: #fff;
+	color: #9c3c92;
 }
 .dice{
 	max-width: 520px;
 	margin:0 auto;
 }
 .score{
-	background-color: rgba(52,52,52,0.3);
-	color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: #9c3c92;
 	height: 60px;
 	max-height:100%;
 	font-size: 32px;
@@ -37,7 +37,7 @@ body{
 	margin-bottom: 10px;
 }
 .button {
-  background-color: green;
+  background-color: rgba(183, 3, 144, 0.362);
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -45,19 +45,45 @@ body{
   display: inline-block;
   font-size: 16px;
   margin-left: 25px;
+  transition: background-color 2s ease-out 100ms
 }
 .column{
 	float: left;
 	width:20%;
 	margin-left: 160px;
 }
+
 .roll{
 }
 .roll:hover{
+	background-color: rgb(183, 3, 144);
+	animation: effect 0.4s infinite;
 }
 .bank{
 }
 .bank:hover{
+	background-color: rgb(183, 3, 144);
+}
+
+@keyframes effect {
+	0% {
+		transform: translateX(0px) rotate(0deg);
+	}
+	20% {
+		transform: translateX(-4px) rotate(-4deg);
+	}
+	40% {
+		transform: translateX(-2px) rotate(-2deg);
+	}
+	60% {
+		transform: translateX(4px) rotate(4deg);
+	}
+	80% {
+		transform: translateX(2px) rotate(2deg);
+	}
+	100% {
+		transform: translateX(0px) rotate(0deg);
+	}
 }
 .transparent{
 	/*For dice that are selected*/
